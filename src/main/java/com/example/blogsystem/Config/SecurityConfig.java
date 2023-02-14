@@ -36,6 +36,10 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                 .requestMatchers(HttpMethod.POST, "/api/v1/users/register").permitAll()
                 .requestMatchers("/api/v1/users/admin").hasAuthority("ADMIN")
+
+                .requestMatchers("/api/v1/users/delete/**" , "/api/v1/blogs/all/blogs" ,
+                        "/api/v1/blogs/**" , "/api/v1/blogs/add" ,
+                        "/api/v1/blogs/update/**" , "/api/v1/blogs/delete/**","/api/v1/blogs/blogtitle/**").hasAuthority("USER")
                 .anyRequest().authenticated()
                 .and()
                 .logout().logoutUrl("/api/v1/users/logout")

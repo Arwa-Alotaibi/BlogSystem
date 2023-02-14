@@ -19,6 +19,8 @@ public class UserController {
     @GetMapping("/user")
     public ResponseEntity getuser(@AuthenticationPrincipal User user){
         return ResponseEntity.status(200).body(userService.GetUser(user.getId()));
+
+
     }
     @PostMapping("/register")
     public ResponseEntity AddUser(@Valid @RequestBody User newuser){
@@ -36,6 +38,5 @@ public class UserController {
     public ResponseEntity DeleteUser(@PathVariable Integer id){
         userService.DeleteUser(id);
         return ResponseEntity.status(200).body("user deleted");
-
     }
 }
