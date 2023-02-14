@@ -16,9 +16,9 @@ public class UserController {
         this.userService=userService;
     }
 
-    @GetMapping("/all")
-    public ResponseEntity GetAll(){
-        return ResponseEntity.status(200).body(userService.GetAllUsers());
+    @GetMapping("/user")
+    public ResponseEntity getuser(@AuthenticationPrincipal User user){
+        return ResponseEntity.status(200).body(userService.GetUser(user.getId()));
     }
     @PostMapping("/register")
     public ResponseEntity AddUser(@Valid @RequestBody User newuser){
