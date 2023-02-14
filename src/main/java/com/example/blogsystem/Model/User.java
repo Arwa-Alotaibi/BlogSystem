@@ -29,7 +29,7 @@ public class User implements UserDetails {
 
 
 
-    @Column(columnDefinition = "varchar(10) not null check(role='ADMIN'' or role='USER'")
+    @Column(columnDefinition = "varchar(10) not null check(role='ADMIN' or role='USER'")
     private String role;
 
     @Column(nullable = false)
